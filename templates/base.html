@@ -1,0 +1,67 @@
+<!-- templates/base.html -->
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Site Profissional | Isabela{% endblock %}</title>
+  <meta name="description" content="Aulas particulares, materiais didáticos, marketing digital e blog educacional." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Twitter Cards -->
+  <meta property="og:title" content="Site Profissional | Isabela" />
+  <meta property="og:description" content="Aulas particulares, materiais didáticos, marketing digital e blog educacional." />
+  <meta property="og:image" content="{{ url_for('static', filename='img/og-image.png') }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ request.url_root }}" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ url_for('rss') }}" />
+</head>
+<body>
+  <!-- Link para pular direto ao conteúdo (acessibilidade) -->
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="{{ url_for('home') }}" class="logo">Isabela</a>
+      <nav aria-label="Principal">
+        <button id="menuToggle" aria-expanded="false" aria-controls="menu">☰</button>
+        <ul id="menu" class="menu">
+          <li><a href="{{ url_for('home') }}">Início</a></li>
+          <li><a href="{{ url_for('services') }}">Serviços</a></li>
+          <li><a href="{{ url_for('shop') }}">Loja</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('resume') }}">Histórico</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Entre em contato</strong>
+        <p>Email: <a href="mailto:isabela@example.com">isabela@example.com</a></p>
+      </div>
+      <div>
+        <strong>Redes</strong>
+        <ul class="social-list">
+          {% for name, url in (social or {}).items() %}
+            <li><a href="{{ url }}" target="_blank" rel="noopener">{{ name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <small>© {{ 2025 }} Isabela de Paula Faria — Todos os direitos reservados</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>
