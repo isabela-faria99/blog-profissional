@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Blog | Isabela{% endblock %}
+{% block content %}
+<h1>Blog</h1>
+<p>Reflexões, dicas de estudo e materiais úteis. Assine o <a href="{{ url_for('rss') }}">RSS</a>.</p>
+
+<div class="grid">
+  {% for p in posts %}
+    <article class="card">
+      <h2><a href="{{ url_for('blog_post', slug=p.slug) }}">{{ p.title }}</a></h2>
+      <p class="muted">{{ p.date.strftime('%d/%m/%Y') }} {% if p.tags %} • {{ ', '.join(p.tags) }}{% endif %}</p>
+      <p>{{ p.summary }}</p>
+      <a class="link" href="{{ url_for('blog_post', slug=p.slug) }}">Ler mais →</a>
+    </article>
+  {% else %}
+    <p>Ainda não há artigos publicados.</p>
+  {% endfor %}
+</div>
+{% endblock %}
