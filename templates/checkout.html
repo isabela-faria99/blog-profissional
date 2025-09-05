@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Checkout | Isabela{% endblock %}
+{% block content %}
+<h1>Checkout</h1>
+<p>Preencha seus dados e confirme o pedido. Entrarei em contato por e-mail para combinar pagamento e entrega.</p>
+
+<div class="grid two">
+  <form id="checkoutForm" class="card" novalidate>
+    <label>Nome completo
+      <input name="name" required />
+    </label>
+    <label>E-mail
+      <input name="email" type="email" required />
+    </label>
+    <label>Telefone (opcional)
+      <input name="phone" />
+    </label>
+    <button class="btn" type="submit">Enviar pedido</button>
+    <p id="checkoutMsg" class="muted" role="status" aria-live="polite"></p>
+  </form>
+
+  <aside class="card">
+    <h2>Resumo</h2>
+    <div id="checkoutSummary"></div>
+    <p><strong>Total: R$ <span id="checkoutTotal">0,00</span></strong></p>
+  </aside>
+</div>
+{% endblock %}
