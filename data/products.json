@@ -1,0 +1,37 @@
+[
+  {
+    "id": "aula-fisica-1h",
+    "title": "Aula particular de Física (1h)",
+    "price": 80.00,
+    "category": "aulas",
+    "description": "Sessão individual online focada no seu objetivo (ENEM/UFU)."
+  },
+  {
+    "id": "aula-matematica-1h",
+    "title": "Aula particular de Matemática (1h)",
+    "price": 80.00,
+    "category": "aulas",
+    "description": "Resolução de questões e reforço dos tópicos com mais dificuldade."
+  },
+  {
+    "id": "apostila-enem",
+    "title": "Apostila ENEM – Ciências da Natureza",
+    "price": 49.90,
+    "category": "materiais",
+    "description": "Teoria + listas comentadas com foco nas competências e habilidades."
+  },
+  {
+    "id": "plano-marketing-basico",
+    "title": "Plano de Marketing Educacional (Básico)",
+    "price": 299.00,
+    "category": "marketing",
+    "description": "Diagnóstico, calendário de conteúdo e sugestão de anúncios."
+  },
+  {
+    "id": "orientacao-tcc",
+    "title": "Orientação de TCC (1 hora)",
+    "price": 120.00,
+    "category": "academico",
+    "description": "Orientação ética: estrutura, ABNT, revisão e planejamento (sem plágio)."
+  }
+]
