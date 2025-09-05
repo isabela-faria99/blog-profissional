@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Carrinho | Isabela{% endblock %}
+{% block content %}
+<h1>Carrinho</h1>
+<div id="cartContainer" class="card"></div>
+<p>
+  <a class="btn" href="{{ url_for('checkout') }}">Finalizar pedido →</a>
+  <button class="btn outline" id="clearCart">Esvaziar carrinho</button>
+</p>
+{% endblock %}
