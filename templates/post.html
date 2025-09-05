@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} | Blog{% endblock %}
+{% block content %}
+<article class="post">
+  <h1>{{ post.title }}</h1>
+  <p class="muted">{{ post.date.strftime('%d/%m/%Y') }} {% if post.tags %} • {{ ', '.join(post.tags) }}{% endif %}</p>
+  <div class="post-body">{{ post.html|safe }}</div>
+
+  <hr />
+  <p>Compartilhe:
+    {% set share_url = request.url %}
+    <a class="link" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}">Facebook</a> ·
+    <a class="link" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url={{ share_url }}&text={{ post.title }}">X/Twitter</a> ·
+    <a class="link" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}">LinkedIn</a>
+  </p>
+</article>
+{% endblock %}
