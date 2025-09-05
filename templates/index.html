@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Início | Isabela{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>Ensino que transforma</h1>
+    <p>Materiais didáticos, aulas particulares e estratégias de marketing para educadores e estudantes.</p>
+    <a class="btn" href="{{ url_for('services') }}">Conheça meus serviços</a>
+  </div>
+  <img class="hero-img" src="{{ url_for('static', filename='img/avatar.jpg') }}" alt="Foto de perfil da Isabela" />
+</section>
+
+<section>
+  <h2>Últimos artigos</h2>
+  <div class="grid">
+    {% for p in posts %}
+      <article class="card">
+        <h3><a href="{{ url_for('blog_post', slug=p.slug) }}">{{ p.title }}</a></h3>
+        <p class="muted">{{ p.date.strftime('%d/%m/%Y') }}</p>
+        <p>{{ p.summary }}</p>
+        <a class="link" href="{{ url_for('blog_post', slug=p.slug) }}" aria-label="Ler: {{ p.title }}">Ler mais →</a>
+      </article>
+    {% else %}
+      <p>Ainda não há artigos publicados.</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section>
+  <h2>Depoimentos</h2>
+  <div class="grid three">
+    <blockquote class="card">“A aula foi clara e objetiva. Passei a gostar de Física!” — Aline</blockquote>
+    <blockquote class="card">“Estratégias de estudo que realmente funcionam para o ENEM.” — Rafael</blockquote>
+    <blockquote class="card">“Marketing digital sob medida para professores.” — Camila</blockquote>
+  </div>
+</section>
+{% endblock %}
