@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Serviços | Isabela{% endblock %}
+{% block content %}
+<h1>Serviços</h1>
+<p>Atendo estudantes, responsáveis e instituições. Veja abaixo minhas principais ofertas.</p>
+
+<div class="grid three">
+  <div class="card">
+    <h2>Aulas Particulares</h2>
+    <ul>
+      <li>Física (EM e Pré-vestibular)</li>
+      <li>Matemática (EM e Pré-vestibular)</li>
+      <li>Preparação para ENEM/UFU</li>
+    </ul>
+    <a class="btn" href="{{ url_for('shop') }}#aulas">Ver pacotes</a>
+  </div>
+
+  <div class="card">
+    <h2>Materiais Didáticos</h2>
+    <p>Apostilas, listas de exercícios e simulados com gabarito e comentários.</p>
+    <a class="btn" href="{{ url_for('shop') }}#materiais">Ver materiais</a>
+  </div>
+
+  <div class="card">
+    <h2>Marketing Digital Educacional</h2>
+    <p>Estratégia, conteúdo e anúncios para escolas e professores.</p>
+    <a class="btn" href="{{ url_for('shop') }}#marketing">Planos</a>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Trabalhos Acadêmicos (Orientação)</h2>
+  <p>Auxílio responsável em <strong>planejamento, revisão e formatação</strong> (ABNT) de TCCs e relatórios. <em>Não realizo plágio nem produzo trabalhos para submissão como se fossem do aluno.</em></p>
+</div>
+{% endblock %}
