@@ -1,0 +1,42 @@
+/* style.css — estilos base com comentários explicativos */
+:root { --bg: #ffffff; --text: #222; --muted: #666; --primary: #3b82f6; --card: #f7f7f9; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif; }
+
+.container { width: min(1100px, 92%); margin: 0 auto; }
+.muted { color: var(--muted); }
+
+.site-header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.logo { font-weight: 800; text-decoration: none; color: var(--text); font-size: 1.2rem; }
+.menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; }
+.menu a { text-decoration: none; color: var(--text); }
+#menuToggle { display: none; }
+
+.site-footer { background: #fafafa; border-top: 1px solid #eee; margin-top: 40px; }
+.footer-inner { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); padding: 20px 0; }
+
+.skip-link { position: absolute; left: -999px; top: -999px; }
+.skip-link:focus { left: 12px; top: 12px; background: #000; color: #fff; padding: 8px 10px; border-radius: 6px; }
+
+.hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; padding: 24px 0; }
+.hero-img { width: 100%; border-radius: 16px; }
+.btn { background: var(--primary); color: #fff; padding: 10px 14px; border-radius: 10px; border: none; text-decoration: none; display: inline-block; }
+.btn.outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+.link { color: var(--primary); text-decoration: none; }
+
+.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid.three { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+.card { background: var(--card); padding: 16px; border-radius: 12px; box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
+
+.post .post-body img { max-width: 100%; height: auto; border-radius: 8px; }
+
+/* Responsivo - menu hamburguer */
+@media (max-width: 760px) {
+  #menuToggle { display: inline-block; background: transparent; border: 1px solid #ddd; padding: 6px 10px; border-radius: 8px; }
+  .menu { display: none; position: absolute; right: 4%; top: 56px; background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 10px; flex-direction: column; gap: 10px; }
+  .menu.open { display: flex; }
+  .hero { grid-template-columns: 1fr; }
+}
