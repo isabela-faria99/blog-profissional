@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Loja | Isabela{% endblock %}
+{% block content %}
+<h1>Loja</h1>
+<p>Selecione o que você precisa e adicione ao carrinho. O pagamento é combinado por e-mail após o pedido.</p>
+
+<div class="grid" id="productList" aria-live="polite">
+  {% for prod in products %}
+    <article class="card" data-id="{{ prod.id }}" data-title="{{ prod.title }}" data-price="{{ '%.2f'|format(prod.price) }}">
+      <h2 id="h-{{ prod.id }}">{{ prod.title }}</h2>
+      <p class="muted">Categoria: {{ prod.category }}</p>
+      <p>{{ prod.description }}</p>
+      <p><strong>R$ {{ '%.2f'|format(prod.price) }}</strong></p>
+      <button class="btn add-to-cart" aria-labelledby="h-{{ prod.id }}">Adicionar ao carrinho</button>
+    </article>
+  {% endfor %}
+</div>
+
+<p><a class="btn" href="{{ url_for('cart') }}">Ir para o carrinho →</a></p>
+{% endblock %}
